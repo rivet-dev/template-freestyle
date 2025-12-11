@@ -2,7 +2,7 @@ import { createRivetKit } from "@rivetkit/react";
 import { useState } from "react";
 import type { registry } from "../backend/registry";
 
-const { useActor } = createRivetKit<typeof registry>(`http://${window.location.hostname}:8081`);
+const { useActor } = createRivetKit<typeof registry>(`${window.location.origin}/rivet`);
 
 function App() {
 	const [count, setCount] = useState(0);

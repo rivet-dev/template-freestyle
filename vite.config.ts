@@ -11,5 +11,13 @@ export default defineConfig({
 		host: "0.0.0.0",
 		allowedHosts: true,
 		port: 3000,
+		proxy: {
+			"/rivet": {
+				target: "http://localhost:6420",
+				changeOrigin: true,
+				ws: true,
+				rewrite: (path) => path.replace(/^\/rivet/, ""),
+			},
+		},
 	},
 });
